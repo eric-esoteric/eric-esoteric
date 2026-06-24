@@ -1,16 +1,21 @@
-## Hi there 👋
+Привет, я Эрик! 👋
 
-<!--
-**eric-esoteric/eric-esoteric** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+Я вайбкодер, который пришел в разработку не ради зубрежки синтаксиса, а чтобы решать реальные проблемы. Верю, что хороший промпт и продуктовая злость способны горы свернуть.
 
-Here are some ideas to get you started:
+🛠️ Почему я здесь?
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+Меня по-настоящему достал хаос и завалы мусора на рынке труда (МЛМ, крипто-скам, эзотерика и рабские графики 60 часов в неделю). Вместо того чтобы продолжать жаловаться, я взял нейросети, Python и собрал Job Hunter AI — персональный фильтр, который делает поиск работы адекватным.
+
+📌 Чем я занимаюсь прямо сейчас:
+
+🎯 Job Hunter AI — развиваю свой умный десктопный ассистент и Chrome-расширение.
+
+🎭 Ren'Py Gamedev — уже несколько дней пишу собственную визуальную новеллу (пытаюсь не сломать движок при первом же запуске ветвления диалогов).
+
+🐦 Рассказываю о своих приключениях в Твиттере.
+
+⚡ Мой стек (когда за меня пишет ИИ):
+
+Python / CustomTkinter / Gemini API / Ren'Py / Вайб и чашка крепкого кофе
+
+«Focus on the idea, let AI handle the syntax.»
