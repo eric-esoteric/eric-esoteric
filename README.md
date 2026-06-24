@@ -19,3 +19,5 @@
 Python / CustomTkinter / Gemini API / Ren'Py / Вайб и чашка крепкого кофе
 
 «Focus on the idea, let AI handle the syntax.»
+
+<img width="720" height="405" alt="bgjXmj" src="https://github.com/user-attachments/assets/bea470f1-5cfe-4542-9b50-7112a148df30" />
