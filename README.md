@@ -105,7 +105,7 @@ developer tooling, automation infrastructure.
 ---
 
 <p align="center">
-  <a href="mailto:teammudlo@gmail.com">
-    <img src="https://img.shields.io/badge/Email-teammudlo%40gmail.com-EA4335?style=for-the-badge&logo=gmail&logoColor=white">
+  <a href="mailto:mashamasha.vishnya@gmail.com">
+    <img src="https://img.shields.io/badge/Email-mashamasha.vishnya%40gmail.com-EA4335?style=for-the-badge&logo=gmail&logoColor=white">
   </a>
 </p>
