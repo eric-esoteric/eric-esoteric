@@ -14,20 +14,20 @@
 
 ---
 
-I build production-grade desktop software and AI-powered automation tools — the kind that handle real edge cases, recover from failures gracefully, and ship as polished executables. My projects are designed from the architecture down, not assembled from tutorials.
+I build desktop software and AI-powered automation tools, with an emphasis on handling edge cases and failures gracefully so they hold up outside of a demo. I enjoy thinking through the architecture up front rather than patching it in later.
 
 ---
 
-## My greatest strength: I don't just build apps, I build a suite
+## What I'd call my biggest strength: apps that work together, not just alongside each other
 
-Anyone can ship one hotkey tool. What I actually built is three of them — **Job Hunter AI**, **Lingo Hunter AI**, and **Code Hunter AI** — sharing one engine (multi-provider AI failover, global hotkey capture, atomic storage, tray/theme system) and designed from day one to hand off work to each other. That's the difference between three separate utilities and an ecosystem: the output of one becomes the input of the next, with zero copy-paste friction and zero context-switching.
+I've built three hotkey-driven desktop apps — **Job Hunter AI**, **Lingo Hunter AI**, and **Code Hunter AI** — that share one underlying engine (multi-provider AI failover, global hotkey capture, atomic storage, tray/theme system) and are designed so the output of one can feed directly into the next, without copy-paste friction or app-switching.
 
-Two workflows that run through my own daily routine:
+Two workflows from my own daily routine show what that looks like in practice:
 
-- **Think in your language, ship in code.** I draft a request in my own language, hit a hotkey and **Lingo Hunter AI** translates it to English on a free-tier key — no reason to burn a paid model on translation. A second hotkey hands that English text straight to **Code Hunter AI**, which routes it through a stronger, separately-keyed model and pastes working code back exactly where my cursor was. Two specialized tools, two specialized keys, one uninterrupted motion.
-- **Find it, apply, in words the employer actually understands.** **Job Hunter AI** scans postings, filters out the scams and MLMs, and writes a targeted cover letter in English. If the posting itself is in another language — Chinese, say — I paste that letter into any window and hold the hotkey: **Lingo Hunter AI** translates it for meaning rather than a literal word swap, so a native speaker reads exactly what I meant, not something stilted. (Tone is a separate dial, tuned in Job Hunter AI's own settings — Lingo Hunter's job is comprehension, not style.)
+- **Think in your language, ship in code.** I draft a request in my own language, hit a hotkey, and **Lingo Hunter AI** translates it to English on a free-tier key — no need to spend a paid model's quota on translation. A second hotkey sends that English text to **Code Hunter AI**, which uses a stronger model on a separate key and pastes working code back exactly where my cursor was.
+- **Find it, apply, in words the employer actually understands.** **Job Hunter AI** scans postings, filters out the scams and MLMs, and writes a targeted cover letter in English. If the posting itself is in another language — Chinese, say — I paste that letter into any window and hold the hotkey: **Lingo Hunter AI** translates it for meaning rather than a literal word swap, so a native speaker reads exactly what I meant. (Tone is a separate setting, tuned in Job Hunter AI itself — Lingo Hunter's job is comprehension, not style.)
 
-That's the strength I bring to a team: I don't just write code that works in isolation, I design systems that compose — where the seams between tools disappear and the person using them stays in flow.
+It's a small thing in each individual moment, but I think designing tools so the seams between them disappear is genuinely useful, and it's the part of this work I enjoy most.
 
 ---
 
@@ -35,6 +35,12 @@ That's the strength I bring to a team: I don't just write code that works in iso
 
 ### Job Hunter AI — AI Recruitment Assistant
 > *A full-stack desktop application that automates job search analysis end-to-end.*
+
+<p align="left">
+  <a href="https://github.com/eric-esoteric/job-hunter-ai">
+    <img src="https://img.shields.io/badge/GitHub-Job_Hunter_AI-181717?style=for-the-badge&logo=github&logoColor=white" alt="Job Hunter AI on GitHub">
+  </a>
+</p>
 
 **The problem:** Job boards are flooded with scam postings, MLM schemes, and predatory listings. Screening them manually wastes hours. Writing tailored cover letters wastes more.
 
@@ -67,6 +73,12 @@ Now on v3.1.1, with a 6-provider AI cascade (added OpenRouter), a full concurren
 ### Lingo Hunter AI — Translate in Place, No Tab-Switching
 > *Type in any language. Hit a hotkey. It's translated — in place, instantly.*
 
+<p align="left">
+  <a href="https://github.com/eric-esoteric/lingo-hunter-ai">
+    <img src="https://img.shields.io/badge/GitHub-Lingo_Hunter_AI-181717?style=for-the-badge&logo=github&logoColor=white" alt="Lingo Hunter AI on GitHub">
+  </a>
+</p>
+
 **The problem:** A Slack DM, a job-board comment, a line in a game's chat — right now translating any of it means selecting the text, alt-tabbing to a browser, pasting into a translator, waiting, copying the result, and pasting it back, hoping the formatting survived.
 
 **What I shipped:**
@@ -84,6 +96,12 @@ This is the translation layer that the rest of the suite is built to hand off to
 
 ### Code Hunter AI — Natural Language to Working Code, In Place
 > *Type what you want in plain English. Highlight it. Hit one key. Watch it turn into working code — right where your cursor is.*
+
+<p align="left">
+  <a href="https://github.com/eric-esoteric/code-hunter-ai">
+    <img src="https://img.shields.io/badge/GitHub-Code_Hunter_AI-181717?style=for-the-badge&logo=github&logoColor=white" alt="Code Hunter AI on GitHub">
+  </a>
+</p>
 
 **The problem:** You know exactly what you need — "quicksort," "a rate limiter," "parse this date string" — but still have to alt-tab to a chat window, describe it, wait, copy the answer, alt-tab back, and paste it in, hoping it's not wrapped in three paragraphs of explanation you didn't ask for.
 
@@ -160,5 +178,11 @@ developer tooling, automation infrastructure, multi-app / platform ecosystems.
 <p align="center">
   <a href="mailto:mashamasha.vishnya@gmail.com">
     <img src="https://img.shields.io/badge/Email-mashamasha.vishnya%40gmail.com-EA4335?style=for-the-badge&logo=gmail&logoColor=white">
+  </a>
+  <a href="https://t.me/ericrenvie">
+    <img src="https://img.shields.io/badge/Telegram-%40ericrenvie-26A5E4?style=for-the-badge&logo=telegram&logoColor=white">
+  </a>
+  <a href="https://www.linkedin.com/in/eric-esoteric-a82463415/">
+    <img src="https://img.shields.io/badge/LinkedIn-Eric_Esoteric-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white">
   </a>
 </p>
