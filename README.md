@@ -25,7 +25,7 @@ Anyone can ship one hotkey tool. What I actually built is three of them — **Jo
 Two workflows that run through my own daily routine:
 
 - **Think in your language, ship in code.** I draft a request in my own language, hit a hotkey and **Lingo Hunter AI** translates it to English on a free-tier key — no reason to burn a paid model on translation. A second hotkey hands that English text straight to **Code Hunter AI**, which routes it through a stronger, separately-keyed model and pastes working code back exactly where my cursor was. Two specialized tools, two specialized keys, one uninterrupted motion.
-- **Find it, apply, in your own voice.** **Job Hunter AI** scans postings, filters out the scams and MLMs, and writes a targeted cover letter. I copy that letter and one hotkey away, **Lingo Hunter AI** converts it into my own language to sanity-check tone and phrasing before it goes out — same engine, same reflex, no app-switching.
+- **Find it, apply, in words the employer actually understands.** **Job Hunter AI** scans postings, filters out the scams and MLMs, and writes a targeted cover letter in English. If the posting itself is in another language — Chinese, say — I paste that letter into any window and hold the hotkey: **Lingo Hunter AI** translates it for meaning rather than a literal word swap, so a native speaker reads exactly what I meant, not something stilted. (Tone is a separate dial, tuned in Job Hunter AI's own settings — Lingo Hunter's job is comprehension, not style.)
 
 That's the strength I bring to a team: I don't just write code that works in isolation, I design systems that compose — where the seams between tools disappear and the person using them stays in flow.
 
