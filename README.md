@@ -18,6 +18,19 @@ I build production-grade desktop software and AI-powered automation tools — th
 
 ---
 
+## My greatest strength: I don't just build apps, I build a suite
+
+Anyone can ship one hotkey tool. What I actually built is three of them — **Job Hunter AI**, **Lingo Hunter AI**, and **Code Hunter AI** — sharing one engine (multi-provider AI failover, global hotkey capture, atomic storage, tray/theme system) and designed from day one to hand off work to each other. That's the difference between three separate utilities and an ecosystem: the output of one becomes the input of the next, with zero copy-paste friction and zero context-switching.
+
+Two workflows that run through my own daily routine:
+
+- **Think in your language, ship in code.** I draft a request in my own language, hit a hotkey and **Lingo Hunter AI** translates it to English on a free-tier key — no reason to burn a paid model on translation. A second hotkey hands that English text straight to **Code Hunter AI**, which routes it through a stronger, separately-keyed model and pastes working code back exactly where my cursor was. Two specialized tools, two specialized keys, one uninterrupted motion.
+- **Find it, apply, in your own voice.** **Job Hunter AI** scans postings, filters out the scams and MLMs, and writes a targeted cover letter. I copy that letter and one hotkey away, **Lingo Hunter AI** converts it into my own language to sanity-check tone and phrasing before it goes out — same engine, same reflex, no app-switching.
+
+That's the strength I bring to a team: I don't just write code that works in isolation, I design systems that compose — where the seams between tools disappear and the person using them stays in flow.
+
+---
+
 ## What I Actually Build
 
 ### Job Hunter AI — AI Recruitment Assistant
@@ -29,7 +42,7 @@ I build production-grade desktop software and AI-powered automation tools — th
 
 - **Browser-agnostic capture engine** — A global hotkey listener (`pynput`) runs as a daemon thread. On trigger, it simulates `Ctrl+A → Ctrl+C` in whatever browser is active, reads the clipboard via `pyperclip`, and enqueues the text. No browser extension, no open ports, no Chrome dependency — works on Firefox, Edge, Brave, or any site. Hardware VK keycodes ensure the hotkey fires correctly regardless of the active keyboard layout (Cyrillic, QWERTY, Dvorak). Linux X11 supported natively; Wayland raises a `PlatformSecurityException` with a clear remediation message rather than silently failing.
 
-- **Multi-provider AI cascade with automatic failover** — The engine tries Gemini → GPT → Claude → DeepSeek → Ollama → LM Studio in sequence. If a provider is down, rate-limited, or returns garbage, the next one picks up the task without losing it. Exponential backoff, structured error hierarchy (`AINetworkError` / `AITimeoutError` / `AIRateLimitError` / `AIAuthError`), zero manual intervention.
+- **Multi-provider AI cascade with automatic failover** — The engine tries Gemini → GPT-5 → Claude 4 → DeepSeek → OpenRouter → Ollama → LM Studio in sequence. If a provider is down, rate-limited, or returns garbage, the next one picks up the task without losing it. Exponential backoff, structured error hierarchy (`AINetworkError` / `AITimeoutError` / `AIRateLimitError` / `AIAuthError`), zero manual intervention.
 
 - **5-level JSON repair pipeline** — LLMs regularly return malformed JSON. A cascading parser strips Markdown wrappers, fixes trailing commas, corrects boolean literals, repairs broken quotes, and recovers the response. Results are never silently dropped.
 
@@ -47,6 +60,41 @@ I build production-grade desktop software and AI-powered automation tools — th
 
 - **Full EN/RU localization + self-healing build** — Every string routes through `jh_i18n.py` with named variable substitution, switching at runtime. `build_exe.py` patches import paths before PyInstaller bundles the executable; `jh_version.py` is the single source of truth for version strings across window titles, `.exe` VERSIONINFO, and the UI.
 
+Now on v3.1.1, with a 6-provider AI cascade (added OpenRouter), a full concurrency/reliability audit, and standalone operation — the Chrome extension was dropped entirely in v3.0.0 in favor of the same global-hotkey capture engine that now powers all three apps in the suite.
+
+---
+
+### Lingo Hunter AI — Translate in Place, No Tab-Switching
+> *Type in any language. Hit a hotkey. It's translated — in place, instantly.*
+
+**The problem:** A Slack DM, a job-board comment, a line in a game's chat — right now translating any of it means selecting the text, alt-tabbing to a browser, pasting into a translator, waiting, copying the result, and pasting it back, hoping the formatting survived.
+
+**What I shipped:**
+
+- **Zero-selection capture** — Type your message anywhere, hit the hotkey (`Ctrl+Shift+Z` by default). No selecting, no mouse: the app grabs everything in the active field, translates it, and pastes it straight back in place.
+- **Works in any app** — Any focused text field, any application. No allow-list, no per-site integration.
+- **Same 5-cloud + 2-local failover engine** as the rest of the suite (Gemini, OpenAI, Anthropic, DeepSeek, OpenRouter, plus Ollama/LM Studio) — if one provider is slow or out of quota, the next takes over mid-sentence, invisibly.
+- **"Expressive" mode** — most translation tools quietly sand slang and tone down to something safe and corporate; Expressive translates as-is. A "Standard" mode is there when you want the safer default instead.
+- **Bring your own key, own traffic** — talks directly to the provider you configure. No middleman server relaying or logging messages.
+- **One settings panel** — target language (with starred favorites for one-click switching), hotkey, provider, and per-provider failover order, all in a single screen. Two built-in themes.
+
+This is the translation layer that the rest of the suite is built to hand off to — the same engine, repointed, is what became Code Hunter AI below.
+
+---
+
+### Code Hunter AI — Natural Language to Working Code, In Place
+> *Type what you want in plain English. Highlight it. Hit one key. Watch it turn into working code — right where your cursor is.*
+
+**The problem:** You know exactly what you need — "quicksort," "a rate limiter," "parse this date string" — but still have to alt-tab to a chat window, describe it, wait, copy the answer, alt-tab back, and paste it in, hoping it's not wrapped in three paragraphs of explanation you didn't ask for.
+
+**What I shipped:**
+
+- **Selection-scoped, never file-scoped** — Code Hunter AI acts only on text you've deliberately selected — it never grabs "the current paragraph" or an entire file, which is what makes it safe to run inside a real IDE with a real codebase open.
+- **Code back, nothing else** — By default the response is code and only code: no comments, no docstrings, no "Here's how this works!" preamble. An anti-mirror / no-hallucination system prompt stops the model from echoing the request back unchanged or inventing unrequested features. A comment-detection backstop catches any model that adds comments despite "Code only" mode.
+- **Rebuilt from Lingo Hunter AI's engine** — same multi-provider failover, hotkey capture, tray and theme system, repointed at a different job: turning a natural-language request into working code in the language you pick, instead of translating between human languages.
+- **16 target languages** out of the box — Python, JavaScript, TypeScript, Java, C#, C++, C, Go, Rust, PHP, Ruby, Swift, Kotlin, SQL, Bash, HTML/CSS — or type in anything else.
+- **Independent provider and key from Lingo Hunter** — pointed at a more powerful model on its own key, so cheap translation and heavyweight code generation never compete for the same quota.
+
 ---
 
 ## Engineering Approach
@@ -60,6 +108,9 @@ what happens when the API is down, when the model returns malformed data, when t
 user runs on a 4K display, when the queue backs up, when the hotkey fires on a
 Wayland session. The answers shape the design, not the other way around.
 
+The same discipline applies across the suite, not just within one app: shared failover
+logic, shared atomic storage, shared i18n system — fixed once, inherited everywhere.
+
 ---
 
 ## Tech Stack
@@ -69,11 +120,12 @@ Wayland session. The answers shape the design, not the other way around.
 | **Language** | Python 3.10+ |
 | **GUI & Tray** | CustomTkinter · pystray · Pillow · ctypes Win32 API |
 | **Hotkey & Clipboard** | pynput · hardware VK codes (layout-independent) · pyperclip |
-| **AI Providers** | Gemini 2.5 · GPT-5 / o3 · Claude 4 · DeepSeek · Ollama · LM Studio |
+| **AI Providers** | Gemini 2.5 · GPT-5 / o3 · Claude 4 · DeepSeek · OpenRouter · Ollama · LM Studio |
 | **Resilience** | Failover Chain · Exponential Backoff · 5-level JSON parser · custom exception hierarchy |
 | **Platform** | Windows (Win32) · Linux X11 · Wayland guard with graceful degradation |
 | **Build** | PyInstaller · self-healing build scripts · single-source versioning |
 | **Storage** | Atomic Write-Copy-Replace + fsync · independent file/URL locks · O(1) dedup |
+| **Localization** | Declarative EN/RU with named variable substitution, runtime switching |
 
 ---
 
@@ -95,10 +147,11 @@ Each exception type triggers a specific UI response and fallback path. The UI ne
 ## What I'm Looking For
 
 I'm open to roles where engineering quality matters — where the difference between
-a working prototype and a production system is taken seriously.
+a working prototype and a production system is taken seriously, and where designing
+tools that work together is valued as much as any single feature.
 
 **Strong fit:** backend systems, AI/LLM integration, desktop application development,
-developer tooling, automation infrastructure.
+developer tooling, automation infrastructure, multi-app / platform ecosystems.
 
 **Available for:** full-time, contract, remote.
 
