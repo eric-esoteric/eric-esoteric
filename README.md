@@ -138,7 +138,7 @@ logic, shared atomic storage, shared i18n system — fixed once, inherited every
 | **Language** | Python 3.10+ |
 | **GUI & Tray** | CustomTkinter · pystray · Pillow · ctypes Win32 API |
 | **Hotkey & Clipboard** | pynput · hardware VK codes (layout-independent) · pyperclip |
-| **AI Providers** | Gemini 2.5 · GPT-5 / o3 · Claude 4 · DeepSeek · OpenRouter · Ollama · LM Studio |
+| **AI Providers** | Gemini · GPT · Claude · DeepSeek · OpenRouter · Ollama · LM Studio |
 | **Resilience** | Failover Chain · Exponential Backoff · 5-level JSON parser · custom exception hierarchy |
 | **Platform** | Windows (Win32) · Linux X11 · Wayland guard with graceful degradation |
 | **Build** | PyInstaller · self-healing build scripts · single-source versioning |
