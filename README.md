@@ -1,20 +1,21 @@
 <h1 align="center">Eric Esoteric</h1>
 
 <p align="center">
-  <strong>Software Developer · AI Integration · Desktop & Backend Engineering</strong>
+  <strong>Software Developer · AI Integration · Desktop, Android & Backend Engineering</strong>
 </p>
 
 <p align="center">
   <img src="https://img.shields.io/badge/Python-3.10+-3670A0?style=flat&logo=python&logoColor=ffdd54">
   <img src="https://img.shields.io/badge/AI_Integration-Multi--Provider-00B981?style=flat">
   <img src="https://img.shields.io/badge/Windows-Win32_API-0078D4?style=flat&logo=windows">
+  <img src="https://img.shields.io/badge/Android-Kotlin_%26_Java-3DDC84?style=flat&logo=android&logoColor=white">
   <img src="https://img.shields.io/badge/Linux-X11-FCC624?style=flat&logo=linux&logoColor=black">
   <img src="https://img.shields.io/badge/Desktop-System_Tray_App-6E40C9?style=flat">
 </p>
 
 ---
 
-I build desktop software and AI-powered automation tools, with an emphasis on handling edge cases and failures gracefully so they hold up outside of a demo. I enjoy thinking through the architecture up front rather than patching it in later.
+I build desktop and Android software, AI-powered automation tools, and networking applications, with an emphasis on handling edge cases and failures gracefully so they hold up outside of a demo. I enjoy thinking through the architecture up front rather than patching it in later.
 
 ---
 
@@ -115,6 +116,43 @@ This is the translation layer that the rest of the suite is built to hand off to
 
 ---
 
+### TRELAY — Selective VPN Routing for Telephony
+> *Keep a phone client on the route it needs while the rest of the device uses its normal connection.*
+
+<p align="left">
+  <a href="https://github.com/eric-esoteric/TRELAY">
+    <img src="https://img.shields.io/badge/GitHub-TRELAY-181717?style=for-the-badge&logo=github&logoColor=white" alt="TRELAY on GitHub">
+  </a>
+  <a href="https://github.com/eric-esoteric/TRELAY/releases/tag/v0.3.0-beta">
+    <img src="https://img.shields.io/badge/Release-Beta_0.3-E48950?style=for-the-badge" alt="TRELAY Beta 0.3 release">
+  </a>
+</p>
+
+**The problem:** When you're abroad, a SIP or corporate phone client may need a specific VPN route and a Russian IP address. Sending every app through that VPN can disrupt ordinary browsing, messaging, and other work.
+
+**What I built:** A Windows and Android app that routes only selected applications through Xray or Mihomo, monitors the active server, and switches to a backup when needed. Windows routes selected processes through ProxiFyre; Android uses the system's per-app `VpnService`. The interface, route management, health checks, failover logic, and telephony integration are project-specific code built around those engines.
+
+TRELAY can route other applications too; telephony abroad is its main use case. The current release is **Beta 0.3**, with Windows x64 and Android ARM64 downloads in one release.
+
+---
+
+### TLINE — Android SIP Client That Reacts to Route Changes
+> *Keep calls reachable when the VPN server changes.*
+
+<p align="left">
+  <a href="https://github.com/eric-esoteric/TLINE">
+    <img src="https://img.shields.io/badge/GitHub-TLINE-181717?style=for-the-badge&logo=github&logoColor=white" alt="TLINE on GitHub">
+  </a>
+</p>
+
+**The problem:** A SIP client can stay registered on an old connection after VPN failover, leaving incoming calls unreliable until its next registration timer fires.
+
+**What I built:** A dedicated Android phone app based on [baresip-studio](https://github.com/juha-h/baresip-studio) and baresip. TLINE adds its own interface and package, a simpler SIP account setup, incoming-call controls and notification actions, and a direct connection to TRELAY. When TRELAY changes the active route, TLINE rebuilds its SIP transport and starts re-registration immediately. It also works as a standalone SIP client.
+
+Together, TRELAY handles the network route and TLINE handles the call. This integration is designed for more autonomous telephony on Android, especially when the device moves between networks or backup servers.
+
+---
+
 ## Engineering Approach
 
 ```
@@ -135,12 +173,13 @@ logic, shared atomic storage, shared i18n system — fixed once, inherited every
 
 | Layer | Tools |
 |---|---|
-| **Language** | Python 3.10+ |
-| **GUI & Tray** | CustomTkinter · pystray · Pillow · ctypes Win32 API |
+| **Languages** | Python 3.10+ · C# · Kotlin · Java |
+| **GUI & Tray** | CustomTkinter · pystray · Pillow · ctypes Win32 API · WinForms · Android UI |
 | **Hotkey & Clipboard** | pynput · hardware VK codes (layout-independent) · pyperclip |
 | **AI Providers** | Gemini · GPT · Claude · DeepSeek · OpenRouter · Ollama · LM Studio |
 | **Resilience** | Failover Chain · Exponential Backoff · 5-level JSON parser · custom exception hierarchy |
-| **Platform** | Windows (Win32) · Linux X11 · Wayland guard with graceful degradation |
+| **Platform** | Windows (Win32) · Android · Linux X11 · Wayland guard with graceful degradation |
+| **Networking & Telephony** | Xray-core · Mihomo · ProxiFyre · Android `VpnService` · baresip · SIP |
 | **Build** | PyInstaller · self-healing build scripts · single-source versioning |
 | **Storage** | Atomic Write-Copy-Replace + fsync · independent file/URL locks · O(1) dedup |
 | **Localization** | Declarative EN/RU with named variable substitution, runtime switching |
